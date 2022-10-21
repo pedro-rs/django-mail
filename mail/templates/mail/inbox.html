@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'mail/styles.css' %}">
+    
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+
+    <!-- JavaScript -->
+    <script src="{% static 'mail/inbox.js' %}"></script>
+    
+    <title>Email</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'mail/icons/email.svg' %}">
+</head>
+<body>
+    <form id="compose-form">
+        <h3>New Email</h3>
+        <div id="compose-form-content">
+            <div class="compose-indicator">
+                From <input id="compose-sender" disabled class="compose-input" value="{{ request.user.email }}">
+            </div>
+            <hr>
+            <div class="compose-indicator">
+                To <input id="compose-recipients" class="compose-input" autofocus>
+            </div>
+            <hr>
+            <div class="compose-indicator">
+                Subject <input class="compose-input" id="compose-subject">
+            </div>
+            <hr>
+            <textarea class="compose-input" id="compose-body"></textarea>
+            <input type="submit" id="compose-submit" value="Send"/>
+        </div>
+    </form>
+
+    <div id="popup-background">
+
+    </div>
+
+    <div id='emails-view'>
+        <div id='sidebar' class="">
+            <img src="{% static 'mail/icons/sidebar-select.svg' %}" alt="" id="sidebar-select">
+    
+            <div id='sidebar-selector'>
+                <div id="inbox" class="mailbox-selector selected-mailbox">
+                    <img src="{% static 'mail/icons/inbox.svg' %}" alt="" class="selector-icon">
+                    <p class="selector-text">Inbox</p>
+                    <p class="mailbox-count"></p>
+                </div>
+    
+                <div id="sent" class="mailbox-selector">
+                    <img src="{% static 'mail/icons/sent.svg' %}" alt="" class="selector-icon">
+                    <p class="selector-text">Sent</p>
+                    <p class="mailbox-count"></p>
+                </div>
+    
+                <div id="archive" class="mailbox-selector">
+                    <img src="{% static 'mail/icons/archived.svg' %}" alt="" class="selector-icon">
+                    <p class="selector-text">Archived</p>
+                    <p class="mailbox-count"></p>
+                </div>
+            </div>
+        </div>
+
+        <div id='mailbox' class="">
+            <div id="mailbox-header">
+                <form action="search">
+                    <input type="text" name="query" id="searchbar" placeholder="Search in emails" autocomplete="off">
+                </form>
+
+                <div id="user">
+                    <p id='user-name'>{{ request.user.email }}</p>
+                    <img src="{% static 'mail/icons/user.svg' %}" alt="User Icon" id="user-icon">
+
+                    <div id="popup">
+                        <img src="{% static 'mail/icons/settings.svg' %}" alt="" id="settings" onclick="location.href='/settings'"><p onclick="location.href='/settings'">Settings</p>
+                        <img src="{% static 'mail/icons/logout.svg' %}" alt="" id="logout" onclick="location.href='/logout'"><p onclick="location.href='/logout'">Logout</p>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div id="mailbox-body">
+
+            </div>
+
+            <div id='read-view'>
+        
+            </div>
+        </div>
+    </div>
+
+
+
+    <button id="compose">
+        <img src="{% static 'mail/icons/compose.svg' %}" id="compose-icon"> 
+        <p id="compose-text">Compose</p>
+    </button>
+
+</body>
+</html>

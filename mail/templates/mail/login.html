@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E:\Mail | Login</title>
+    <link href="{% static 'mail/login.css' %}" rel="stylesheet">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <p id="logo">E:\Mail</p>
+    {% if message %}
+        <p id="message">{{ message }}</p>
+    {% endif %}
+    
+    <div id="login">
+        <p id="login-text">Login</p>
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="email" id="email" placeholder="Email" autocomplete="off">
+            <input type="password" name="password" id="password" placeholder="Password" autocomplete="off">
+            <input type="submit" id="login-submit" value="Login">
+        </form>
+
+        <p id="register">Don't have an account? Click <a href="{% url 'register' %}">here</a> to register.</p>
+    </div>
+
+    <div id="circle1"></div>
+    <div id="circle2"></div>
+    <div id="circle3"></div>
+</body>
+</html>

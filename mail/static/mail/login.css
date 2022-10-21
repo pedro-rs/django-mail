@@ -1,0 +1,138 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+    height: 100vh;
+    font-family: 'Prompt', sans-serif;
+    overflow: hidden;
+}
+
+#logo {
+    position: absolute;
+    left: 50px;
+    top: 20px;
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#login {
+    display: grid;
+
+    border-radius: 20px;
+    align-self: center;
+    justify-self: center;
+    height: 50vh;
+    width: 25vw;
+    position: relative;
+    z-index: 2;
+}
+
+form {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    align-self: center;
+    justify-items: center;
+    align-items: center;
+}
+
+form > * {
+    margin: 10px;
+    padding: 15px;
+    border-radius: 6px;
+    border: none;
+    font-family: 'Prompt', sans-serif;
+    background-color: rgb(48, 48, 48);
+    color: white;
+}
+
+input[type=text]::placeholder, [type=password]::placeholder {
+    color: whitesmoke;
+}
+
+#login-text {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    font-size: 1.2em;
+    position: absolute;
+    height: 50px;
+    
+    border-radius: 20px 20px 0 0;
+    background-color: #000000;
+    color: white;
+    width: 100%;
+    margin: 0;
+}
+
+#email {
+    width: 70%;
+}
+
+#password {
+    width: 70%;
+}
+
+#login-submit {
+    background-color: #4285F4;
+    color: white;
+    width: 30%;
+    padding: 10px !important;
+    cursor: pointer;
+}
+
+#register {
+    justify-self: center;
+    align-self: end;
+    font-size: 0.8em;
+    font-style: italic;
+    position: absolute;
+    bottom: 0;
+}
+
+#message {
+    position: absolute;
+    justify-self: center;
+
+    font-size: 0.8em;
+    margin: 10px;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    background-color: rgb(223, 85, 85);
+    color: white;
+    top: 15vh;
+}
+
+#circle1 {
+    background-color: #4285F4;
+    position: fixed;
+    width: 110vh;
+    height: 110vh;
+    align-self: center;
+    right: -400px;
+    border-radius: 100%;
+}
+
+#circle2 {
+    background-color: #4285F4;
+    position: fixed;
+    width: 50vh;
+    height: 50vh;
+    left: -110px;
+    bottom: -110px;
+    border-radius: 100%;
+}
+
+#circle3 {
+    background-color: #4285F4;
+    position: fixed;
+    width: 10vh;
+    height: 10vh;
+    right: 400px;
+    bottom: 80px;
+    border-radius: 100%;
+}
